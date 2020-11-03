@@ -102,7 +102,8 @@ if [[ -n "$pre_compile" ]]; then
   eval "$pre_compile"
 fi
 
-while IFS= read -r f; do
+for f in $root_file
+do
   if [[ -z "$f" ]]; then
     continue
   fi
@@ -114,7 +115,7 @@ while IFS= read -r f; do
   fi
 
   "$compiler" "${args[@]}" "$f"
-done <<< "$root_file"
+done
 
 if [[ -n "$post_compile" ]]; then
   info "Run post compile commands"
