@@ -19,6 +19,7 @@ jobs:
               echo "new test end"
               pwd
               ls
+              echo "TEST"
       - name: Compile basic LaTeX document
         uses: ./
         with:
