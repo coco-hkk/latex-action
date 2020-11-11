@@ -121,6 +121,8 @@ do
   cd "$file_path"
 
   "$compiler" "${args[@]}" "$file_name"
+
+  cd -
 done
 
 if [[ -n "$post_compile" ]]; then
