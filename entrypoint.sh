@@ -102,6 +102,7 @@ if [[ -n "$pre_compile" ]]; then
   eval "$pre_compile"
 fi
 
+# added by hkk
 for f in $root_file
 do
   if [[ -z "$f" ]]; then
@@ -114,7 +115,12 @@ do
     error "File '$f' cannot be found from the directory '$PWD'."
   fi
 
-  "$compiler" "${args[@]}" "$f"
+  file_path=$(dirname "$f")
+  file_name=$(basename "$f")
+
+  cd "$file_path"
+
+  "$compiler" "${args[@]}" "$file_name"
 done
 
 if [[ -n "$post_compile" ]]; then

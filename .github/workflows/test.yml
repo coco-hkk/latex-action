@@ -6,6 +6,19 @@ jobs:
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v2
+      - name: Compile new test
+        uses: ./
+        with:
+          root_file: test/test.tex
+          working_directory: ./
+          pre_compile: |
+              echo "new test begin"
+              pwd
+              ls
+          post_compile: |
+              echo "new test end"
+              pwd
+              ls
       - name: Compile basic LaTeX document
         uses: ./
         with:
