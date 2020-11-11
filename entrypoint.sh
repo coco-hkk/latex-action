@@ -122,6 +122,8 @@ do
 
   "$compiler" "${args[@]}" "$file_name"
 
+  cp *.pdf ../
+
   cd -
 done
 
